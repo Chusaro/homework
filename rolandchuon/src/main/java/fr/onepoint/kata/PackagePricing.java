@@ -1,11 +1,17 @@
 package fr.onepoint.kata;
 
-public interface PackagePricing {
-    default float calculate() {
-        return calculate(1.1F, 1);
-    }
+public abstract class PackagePricing {
+	protected Item item;
 
-    static float calculate(float price, int quantity) {
-        return (float) (price * quantity);
-    }
+	float buyThreeForADollar() {
+		return 1f;
+	}
+
+	float buyTwoGetOneFree() {
+		return (float) (item.getUnitPrice());
+	}
+
+	public abstract float calculate();
+
+
 }
